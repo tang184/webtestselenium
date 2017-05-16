@@ -3,7 +3,7 @@ from .forms import SumForm
 
 def index(request):
 	if request.method == 'POST':
-		intsum = None
+		intsum = "Not Valid"
 		form = SumForm(request.POST)
 		if form.is_valid():
 			x = form.cleaned_data['x']

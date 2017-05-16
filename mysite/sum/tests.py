@@ -41,7 +41,7 @@ class FooTest(TestCase):
 
 
 
-	def test_three(self):
+	def test_four(self):
 		
 		browser = webdriver.Chrome()
 		browser.get('http://127.0.0.1:8000/sum')
@@ -57,6 +57,26 @@ class FooTest(TestCase):
 		    EC.text_to_be_present_in_element(
 		        (By.ID, 'sum'),
 		        '3'
+		    )
+		)
+
+
+	def test_three(self):
+		
+		browser = webdriver.Chrome()
+		browser.get('http://127.0.0.1:8000/sum')
+		x = browser.find_element_by_name('x')  # Find the search box
+		x.send_keys("abcd")
+		y = browser.find_element_by_name('y')
+		y.send_keys("efgh")
+		browser.find_element_by_name('subbut').click()
+		#browser.implicitly_wait(10)
+		#browser.get('http://127.0.0.1:8000/sum')
+		#browser.implicitly_wait(10)
+		WebDriverWait(browser, 5).until(
+		    EC.text_to_be_present_in_element(
+		        (By.ID, 'sum'),
+		        "Not Valid"
 		    )
 		)
 		
