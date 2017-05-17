@@ -22,7 +22,7 @@ class FooTest(TestCase):
 		pass
 
 
-
+"""
 	def test_two(self):
 
 		display = Display(visible=0, size=(800, 600))
@@ -96,7 +96,6 @@ class FooTest(TestCase):
 		browser.quit()
 		display.stop()
 		
-		"""
 		#assert (bintsum.get_attribute('value') == None)
 		# browser.quit()
 		browser = Chrome()
