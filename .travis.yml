@@ -7,14 +7,9 @@ dist: trusty
 
 before_install:
   - sudo apt-get install xvfb
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
   - sudo apt-get install -y libappindicator1 fonts-liberation
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome*.deb
-
-
 
 
 install:
@@ -26,7 +21,11 @@ before_script:
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/bin
   - sudo chmod a+x /usr/bin/chromedriver
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
   - python mysite/manage.py runserver
+  - sleep 3 # give Web server some time to bind to sockets, etc
 
 
 script: python mysite/manage.py test sum
