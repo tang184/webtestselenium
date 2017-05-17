@@ -6,6 +6,7 @@ dist: trusty
 
 
 before_install:
+  - sudo apt-get install xvfb
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
@@ -21,7 +22,7 @@ install:
 - python mysite/manage.py collectstatic --noinput
 before_script:
   # google chrome standalone driver
-  - wget https://chromedriver.storage.googleapis.com/2.13/chromedriver_linux64.zip
+  - wget https://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/bin
   - sudo chmod a+x /usr/bin/chromedriver
