@@ -2,13 +2,6 @@ language: python
 python:
 - '3.6'
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
 before_install:
   - sudo apt-get install xvfb
 install:
@@ -16,7 +9,7 @@ install:
 - python mysite/manage.py collectstatic --noinput
 before_script:
   # google chrome standalone driver
-  - wget https://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
+  - wget https://chromedriver.storage.googleapis.com/2.13/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/bin
   - sudo chmod a+x /usr/bin/chromedriver
