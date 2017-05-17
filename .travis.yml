@@ -2,10 +2,16 @@ language: python
 python:
 - '3.6'
 
-sudo: false
-
 before_install:
-  - apt-get install xvfb
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
+
+
+
 
 install:
 - pip install -r requirements.txt
@@ -14,10 +20,8 @@ before_script:
   # google chrome standalone driver
   - wget https://chromedriver.storage.googleapis.com/2.13/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - mv chromedriver /usr/bin
-  - chmod a+x /usr/bin/chromedriver
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  - sudo mv chromedriver /usr/bin
+  - sudo chmod a+x /usr/bin/chromedriver
 
 
 script: python mysite/manage.py test sum
