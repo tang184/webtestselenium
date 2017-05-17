@@ -26,6 +26,7 @@ before_script:
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/bin
   - sudo chmod a+x /usr/bin/chromedriver
+  - python mysite/manage.py runserver
 
 
 script: python mysite/manage.py test sum
