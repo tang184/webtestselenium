@@ -6,6 +6,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+from pyvirtualdisplay import Display
+
+
+
 
 # Create your tests here
 from .forms import SumForm
@@ -20,6 +24,9 @@ class FooTest(TestCase):
 
 
 	def test_two(self):
+
+		display = Display(visible=0, size=(800, 600))
+		display.start()
 		
 		browser = webdriver.Chrome()
 		browser.get('http://127.0.0.1:8000/sum')
@@ -41,6 +48,8 @@ class FooTest(TestCase):
 
 
 	def test_four(self):
+		display = Display(visible=0, size=(800, 600))
+		display.start()
 		
 		browser = webdriver.Chrome()
 		browser.get('http://127.0.0.1:8000/sum')
@@ -61,6 +70,8 @@ class FooTest(TestCase):
 
 
 	def test_three(self):
+		display = Display(visible=0, size=(800, 600))
+		display.start()
 		
 		browser = webdriver.Chrome()
 		browser.get('http://127.0.0.1:8000/sum')
