@@ -2,6 +2,8 @@ language: python
 python:
 - '3.6'
 
+sudo: false
+
 before_install:
   - sudo apt-get install libfontconfig1=2.9.0 libstdc++6=4.8.0 fonts-liberation=4.1 libappindicator1 lsb-base
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
