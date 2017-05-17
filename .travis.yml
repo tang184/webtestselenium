@@ -14,7 +14,6 @@ before_script:
   - sudo chmod a+x /usr/bin/chromedriver
 
 script: python mysite/manage.py test sum
-cache: pip
 
 
 
