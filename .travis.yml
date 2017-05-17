@@ -2,6 +2,11 @@ language: python
 python:
 - '3.6'
 
+before_install:
+  - sudo apt-get install xvfb
+  - sudo apt-get -f install
+  - sudo apt-get install libfontconfig1 libstdc++6 lsb-base
+
 
 addons:
   apt:
@@ -10,8 +15,6 @@ addons:
     packages:
      - google-chrome-stable fluxbox
 
-before_install:
-  - sudo apt-get install xvfb
 install:
 - pip install -r requirements.txt
 - python mysite/manage.py collectstatic --noinput
