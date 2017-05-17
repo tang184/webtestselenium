@@ -44,6 +44,8 @@ class FooTest(TestCase):
 		        '7'
 		    )
 		)
+		browser.quit()
+		display.stop()
 
 
 
@@ -67,6 +69,8 @@ class FooTest(TestCase):
 		        '3'
 		    )
 		)
+		browser.quit()
+		display.stop()
 
 
 	def test_three(self):
@@ -89,6 +93,8 @@ class FooTest(TestCase):
 		        "Not Valid"
 		    )
 		)
+		browser.quit()
+		display.stop()
 		
 		"""
 		#assert (bintsum.get_attribute('value') == None)
