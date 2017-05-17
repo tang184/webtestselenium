@@ -5,12 +5,9 @@ python:
 sudo: false
 
 before_install:
-  - sudo apt-get install libfontconfig1=2.9.0 libstdc++6=4.8.0 fonts-liberation=4.1 libappindicator1 lsb-base
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg --install google-chrome-stable_current_amd64.deb
-  - sudo apt-get install -f
-  - sudo apt-get install xvfb
-  - sudo apt-get -f install
+  - apt-get install -f
+  - apt-get install xvfb
+  - apt-get -f install
 
 
 
@@ -22,8 +19,8 @@ before_script:
   # google chrome standalone driver
   - wget https://chromedriver.storage.googleapis.com/2.13/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - sudo mv chromedriver /usr/bin
-  - sudo chmod a+x /usr/bin/chromedriver
+  - mv chromedriver /usr/bin
+  - chmod a+x /usr/bin/chromedriver
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
