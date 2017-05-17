@@ -8,10 +8,10 @@ install:
 - python mysite/manage.py collectstatic --noinput
 before_script:
   # google chrome standalone driver
-  - wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+  - wget https://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - sudo mv chromedriver /usr/local/bin
-  - sudo chmod a+x /usr/local/bin/chromedriver
+  - sudo mv chromedriver /usr/bin
+  - sudo chmod a+x /usr/bin/chromedriver
 
 script: python mysite/manage.py test sum
 cache: pip
