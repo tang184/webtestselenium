@@ -1,1 +1,1 @@
-web: gunicorn mysite/sum.wsgi --log-file -
+web: gunicorn sum.wsgi --log-file -
