@@ -22,14 +22,13 @@ class FooTest(TestCase):
 		pass
 
 
-"""
 	def test_two(self):
 
 		display = Display(visible=0, size=(800, 600))
 		display.start()
 		
 		browser = webdriver.Chrome()
-		browser.get('http://127.0.0.1:8000/sum')
+		browser.get('https://seleniumtes.herokuapp.com/sum/')
 		x = browser.find_element_by_name('x')  # Find the search box
 		x.send_keys(5)
 		y = browser.find_element_by_name('y')
@@ -54,7 +53,7 @@ class FooTest(TestCase):
 		display.start()
 		
 		browser = webdriver.Chrome()
-		browser.get('http://127.0.0.1:8000/sum')
+		browser.get('https://seleniumtes.herokuapp.com/sum/')
 		x = browser.find_element_by_name('x')  # Find the search box
 		x.send_keys(1)
 		y = browser.find_element_by_name('y')
@@ -78,7 +77,7 @@ class FooTest(TestCase):
 		display.start()
 		
 		browser = webdriver.Chrome()
-		browser.get('http://127.0.0.1:8000/sum')
+		browser.get('https://seleniumtes.herokuapp.com/sum/')
 		x = browser.find_element_by_name('x')  # Find the search box
 		x.send_keys("abcd")
 		y = browser.find_element_by_name('y')
@@ -96,14 +95,3 @@ class FooTest(TestCase):
 		browser.quit()
 		display.stop()
 		
-		#assert (bintsum.get_attribute('value') == None)
-		# browser.quit()
-		browser = Chrome()
-		response = browser.request('POST', 'http://127.0.0.1:8000/sum/', data={"x": "1", "y": "2"})
-		#browser.get('http://127.0.0.1:8000/sum')
-		browser.implicitly_wait(5)
-		#print(response)
-		#intsum = browser.find_element_by_name('sum')
-		#print ("INt sum value is" + intsum.get_attribute('value'))
-		pass
-		"""
