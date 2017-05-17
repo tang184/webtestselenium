@@ -5,12 +5,7 @@ python:
 sudo: false
 
 before_install:
-  - apt-get install -f
   - apt-get install xvfb
-  - apt-get -f install
-
-
-
 
 install:
 - pip install -r requirements.txt
