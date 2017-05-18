@@ -3,3 +3,4 @@ Selenium>=3.4.1
 chromedriver>=2.24.1
 pyvirtualdisplay>=0.2.1
 gunicorn>=19.6.0
+whitenoise>=2.0.6
