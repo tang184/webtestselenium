@@ -22,6 +22,9 @@ class FooTest(TestCase):
 		pass
 
 
+	
+
+
 	def test_two(self):
 
 		display = Display(visible=0, size=(800, 600))
@@ -94,4 +97,14 @@ class FooTest(TestCase):
 		)
 		browser.quit()
 		display.stop()
+
+
+	def test_title(self):
+		display = Display(visible=0, size=(800, 600))
+		display.start()
 		
+		browser = webdriver.Chrome()
+		browser.get('https://seleniumtes.herokuapp.com/sum/')
+		self.assertIn('Sum', self.browser.title)
+		browser.quit()
+		display.stop()		
