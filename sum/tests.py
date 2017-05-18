@@ -105,6 +105,6 @@ class FooTest(TestCase):
 		
 		browser = webdriver.Chrome()
 		browser.get('https://seleniumtes.herokuapp.com/sum/')
-		self.assertIn('Sum', self.browser.title)
+		self.assertIn('Sum', browser.title)
 		browser.quit()
 		display.stop()		
