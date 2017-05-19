@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 from pyvirtualdisplay import Display
-
+from django.test import LiveServerTestCase
 
 
 
@@ -16,22 +16,28 @@ from .forms import SumForm
 
 
 
-class FooTest(TestCase):
+class AddTestCase(LiveServerTestCase):
+
+
+	def setUp(self):
+		self.display = Display(visible=0, size=(800, 600))
+		self.display.start()
+		self.selenium = webdriver.Chrome()
+		super(AddTestCase, self).setUp()
+
+	def tearDown(self):
+		self.selenium.quit()
+		super(AddTestCase, self).tearDown()
+		self.display.stop()
 
 	def test_one(self):
 		pass
 
 
-	
-
-
-	def test_two(self):
-
-		display = Display(visible=0, size=(800, 600))
-		display.start()
+	def test_two(self):		
 		
-		browser = webdriver.Chrome()
-		browser.get('https://seleniumtes.herokuapp.com/sum/')
+		browser = self.selenium
+		browser.get(self.live_server_url + '/sum')
 		x = browser.find_element_by_name('x')  # Find the search box
 		x.send_keys(5)
 		y = browser.find_element_by_name('y')
@@ -46,17 +52,13 @@ class FooTest(TestCase):
 		        '7'
 		    )
 		)
-		browser.quit()
-		display.stop()
+		
 
 
 
 	def test_four(self):
-		display = Display(visible=0, size=(800, 600))
-		display.start()
-		
-		browser = webdriver.Chrome()
-		browser.get('https://seleniumtes.herokuapp.com/sum/')
+		browser = self.selenium
+		browser.get(self.live_server_url + '/sum')
 		x = browser.find_element_by_name('x')  # Find the search box
 		x.send_keys(1)
 		y = browser.find_element_by_name('y')
@@ -71,16 +73,12 @@ class FooTest(TestCase):
 		        '3'
 		    )
 		)
-		browser.quit()
-		display.stop()
+		
 
 
 	def test_three(self):
-		display = Display(visible=0, size=(800, 600))
-		display.start()
-		
-		browser = webdriver.Chrome()
-		browser.get('https://seleniumtes.herokuapp.com/sum/')
+		browser = self.selenium
+		browser.get(self.live_server_url  + '/sum')
 		x = browser.find_element_by_name('x')  # Find the search box
 		x.send_keys("abcd")
 		y = browser.find_element_by_name('y')
@@ -95,16 +93,13 @@ class FooTest(TestCase):
 		        "Not Valid"
 		    )
 		)
-		browser.quit()
-		display.stop()
+		
 
 
 	def test_title(self):
-		display = Display(visible=0, size=(800, 600))
-		display.start()
-		
-		browser = webdriver.Chrome()
-		browser.get('https://seleniumtes.herokuapp.com/sum/')
+		browser = self.selenium
+		browser.get(self.live_server_url + '/sum')
 		self.assertIn('Sum', browser.title)
-		browser.quit()
-		display.stop()		
+		
+
+
